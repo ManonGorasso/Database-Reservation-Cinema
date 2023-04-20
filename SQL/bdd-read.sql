@@ -3,7 +3,7 @@
 -- Liste les tables de la base de données et leur type
 SHOW FULL TABLES;
 
--- Liste les colonnes d'une table donnée (ici, TableName)
+-- Liste les colonnes d'une table donnée (ici, TableName à changer pour la table souhaitée)
 SHOW COLUMNS FROM TableName;
 
 -- Récupère les informations pour une salle donnée dans un cinéma donné
@@ -12,7 +12,7 @@ SELECT cinema_name, screen_number, total_amount_seats
     WHERE cinema_name = 'Klub Metz' AND screen_number = 1
 ;
 
--- récupère les informations pour un numéro de salle donnée, tous cinémas confondus
+-- Récupère les informations pour un numéro de salle donnée, tous cinémas confondus
 SELECT cinema_name, screen_number, total_amount_seats
     FROM vw_ScreenByCinema
     WHERE screen_number = 2
@@ -71,7 +71,7 @@ SELECT * FROM vw_ScreeningAvailability
     WHERE amount_booked_ticket != 0
 ;
 
--- Affiche la liste des tickets réservés / achetés / annulés par un client donné (pour visualiser le changement de status des tickets suite aux updates)
+-- Affiche la liste des tickets réservés / achetés / annulés par un client donné (uniquement pour visualiser le changement de status des tickets suite aux updates)
 SELECT * FROM Ticket
     WHERE customer_id = (SELECT id_user FROM User WHERE email = 'erlinda.levi@email.com') -- email client
 ;
